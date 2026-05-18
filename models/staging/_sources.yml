@@ -1,12 +1,40 @@
 sources:
   - name: jaffle_shop
-    database: jaffle-shop-496302  
-    schema: dbt_emsu3617_raw  
+    database: jaffle-shop-496302
+    schema: dbt_emsu3617_raw
     tables:
       - name: raw_customers
-      - name: raw_items
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: raw_orders
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: raw_items
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: raw_products
+        columns:
+          - name: sku
+            tests:
+              - unique
+              - not_null
       - name: raw_stores
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: raw_supplies
-
+        columns:
+          - name: id
+            tests:
+              - not_null
